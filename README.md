@@ -5,12 +5,14 @@ To initialize the project, follow these commands in your terminal, ensuring that
 
 ```shell
 mkdir docker_rest_api && cd docker_rest_api && npm init -y
+```
 
 ## Step 2: Install Dependencies
 Navigate to the project folder and install the necessary dependencies:
 
 ```shell
 npm install express body-parser mongodb mongoose
+```
 
 These libraries are essential for building the backend of our application. Express handles routes and middleware, body-parser helps with request data, and MongoDB/Mongoose enable database operations.
 
@@ -33,12 +35,14 @@ Run the following command to start the application using Docker Compose:
 
 ```shell
 docker compose up -d
+```
 
 This command pulls the MongoDB Docker image, builds the custom Docker image defined in the Dockerfile, and starts both services.
 
 Verify that the Docker containers are running:
 ```shell
 docker ps
+```
 
 
 You should see two running containers.
@@ -48,19 +52,18 @@ You should see two running containers.
 - Create a new collection in Postman.
 - Create a POST request to localhost:5000/users with the following JSON body:
 ```json
-Copy code
 {
   "name": "Tony",
   "role": "Developer"
 }
+```
 - Send the request.
 
 2. To verify the user has been added:
 
 - Visit localhost:5000/users in your browser.
 - Check the MongoDB Docker container for the newly created user:
-
 ```shell
 docker exec -it mongosh -u "root" -p "example"
-
 db.users.find().pretty()
+```
